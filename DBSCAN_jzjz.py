@@ -133,13 +133,12 @@ def to_df(v):
     df_n = df.dropna(subset=['uli','long','lat','nextuli','next_long','next_lat'],axis=0).drop_duplicates()
     df_n['lng_lat_n'] = df_n.next_long.astype('str')+'_'+df_n.next_lat.astype('str')
     return df_n
-    
+#传入校准数据的时间
 dates = int(sys.argv[1])
 if __name__ =='__main__':
     t1 = time.time()
     wenjianming='./middle_data/ulizhuanyijuzhen_lnglat_%s.txt'%dates
-    result=data_to_dict(wenjianming)
-    #result_new=data_to_dict_delold(wenjianming,path,False)    
+    result=data_to_dict(wenjianming） 
     result_dict = result
     pool=Pool(processes=int(15)) #创建资源池
     print('end!!')
